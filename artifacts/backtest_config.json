@@ -1,0 +1,26 @@
+{
+  "folds": [
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05"
+  ],
+  "horizons": [
+    1,
+    6
+  ],
+  "valid_weeks": 4,
+  "models": [
+    "gru",
+    "how_mean",
+    "lightgbm",
+    "lightgbm_oracle",
+    "lightgbm_rain",
+    "lightgbm_weather",
+    "mlp",
+    "persistence",
+    "seasonal_naive"
+  ]
+}
