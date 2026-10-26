@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: dim_zones
+    description: "Every real TLC zone, with a flag for whether it gets forecast."
+    columns:
+      - name: zone_id
+        tests:
+          - not_null
+          - unique
+      - name: is_modeled
+        description: "Averaged at least min_pickups_per_hour before zone_selection_end."
+
+  - name: mart_zone_hour_demand
+    description: "Every modeled zone x every hour. What the models train on."
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: ['zone_id', 'hour_at']
+    columns:
+      - name: zone_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_zones')
+                field: zone_id
+      - name: precip_mm
+        tests:
+          - not_null
+      - name: temp_c
+        tests:
+          - not_null
+      - name: is_dst_shift
+        description: "Spring-forward 2am (doesn't exist) or fall-back 1am (two hours of trips)."
+
+  - name: mart_earnings_by_zone_hour
+    description: "Earnings per trip and per in-trip hour by pickup zone, day of week and hour."
+    columns:
+      - name: zone_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_zones')
+                field: zone_id
