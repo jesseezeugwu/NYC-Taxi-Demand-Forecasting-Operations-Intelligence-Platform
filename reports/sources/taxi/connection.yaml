@@ -1,0 +1,4 @@
+name: taxi
+type: duckdb
+options:
+  filename: marts.duckdb
