@@ -1,0 +1,26 @@
+name: 'nyc_taxi'
+version: '1.0'
+profile: 'nyc_taxi'
+
+model-paths: ["models"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+
+vars:
+  # modeling window, end is exclusive
+  start_date: '2024-01-01'
+  end_date: '2026-06-01'
+  # zones are picked from this early window only so the choice can't see the test months
+  zone_selection_end: '2025-01-01'
+  min_pickups_per_hour: 1.0
+
+models:
+  nyc_taxi:
+    staging:
+      +materialized: view
+      stg_yellow_trips:
+        +materialized: table
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table

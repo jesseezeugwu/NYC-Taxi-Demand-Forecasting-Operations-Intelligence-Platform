@@ -1,0 +1,11 @@
+nyc_taxi:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: ../data/taxi.duckdb
+      threads: 8
+    sample:
+      type: duckdb
+      path: ../data/sample.duckdb
+      threads: 4
