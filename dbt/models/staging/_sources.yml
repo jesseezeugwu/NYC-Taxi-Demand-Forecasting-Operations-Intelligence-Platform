@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw
+    tables:
+      - name: yellow_tripdata
+        description: "TLC yellow taxi trip records, one parquet file per month."
+      - name: weather_hourly
+        description: "Central Park hourly weather, parsed from NOAA LCD v2 by taxi/ingest.py."
+      - name: taxi_zones
+        description: "TLC taxi zone lookup."

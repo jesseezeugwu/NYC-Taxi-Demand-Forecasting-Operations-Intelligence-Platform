@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg_yellow_trips
+    description: "One row per trip, renamed and typed."
+    columns:
+      - name: trip_id
+        description: "Hash of vendor, timestamps, zones, fare, tip, distance and total. TLC has no trip id."
+        tests:
+          - not_null
+          - unique
+      - name: pickup_at
+        tests:
+          - not_null
+      - name: dropoff_at
+        tests:
+          - not_null
+
+  - name: stg_weather_hourly
+    description: "Central Park weather, one row per local clock hour. Metric units."
+    columns:
+      - name: hour_at
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_zones
+    columns:
+      - name: zone_id
+        tests:
+          - not_null
+          - unique
