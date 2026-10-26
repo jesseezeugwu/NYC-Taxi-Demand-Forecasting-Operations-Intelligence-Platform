@@ -1,4 +1,4 @@
-# NYC Taxi Demand Forecasting
+# NYC Taxi Demand Forecasting & Operations Intelligence Platform
 
 [![ci](https://github.com/pratri/nyc-taxi-demand-forecasting/actions/workflows/ci.yml/badge.svg)](https://github.com/pratri/nyc-taxi-demand-forecasting/actions/workflows/ci.yml)
 
