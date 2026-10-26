@@ -1,0 +1,8 @@
+option,weather,pooled_wape
+lr_0.05,none,0.141743508565195
+current,none,0.14246144774620934
+leaves_255,none,0.142468291174533
+current+rain,rain,0.1426462755096922
+min_leaf_500,none,0.14269514324171284
+leaves_63,none,0.14272628553744457
+current+observed,observed,0.14393164638711295

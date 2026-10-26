@@ -1,0 +1,15 @@
+{
+  "tune_folds": [
+    "2025-10",
+    "2025-11"
+  ],
+  "horizons": [
+    1,
+    6
+  ],
+  "tie_points": 0.1,
+  "chosen": "current",
+  "weather": "none",
+  "params": {},
+  "same_as_current": true
+}
