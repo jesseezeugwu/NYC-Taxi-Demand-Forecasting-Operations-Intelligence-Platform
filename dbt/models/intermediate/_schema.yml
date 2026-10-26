@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: int_trips_valid
+    description: "Revenue trips only: 1 to 300 minutes long, positive driver earnings, known pickup zone."
+    columns:
+      - name: driver_earnings
+        description: "fare_amount + tip_amount + extra. Leaves out taxes, tolls and surcharges the driver doesn't keep. Credit-card tips only."
+        tests:
+          - not_null
+      - name: trip_duration_min
+        tests:
+          - not_null
+
+  - name: int_zone_hour_activity
+    description: "Sparse zone-hour counts. Only hours with at least one pickup or dropoff appear."
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: ['zone_id', 'hour_at']
