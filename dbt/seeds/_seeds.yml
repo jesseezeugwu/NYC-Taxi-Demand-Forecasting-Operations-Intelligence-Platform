@@ -1,0 +1,9 @@
+version: 2
+
+seeds:
+  - name: nyc_holidays
+    description: "Major US holidays observed in NY plus Christmas Eve and New Year's Eve."
+    config:
+      column_types:
+        holiday_date: date
+        holiday_name: varchar
